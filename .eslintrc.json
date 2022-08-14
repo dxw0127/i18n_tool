@@ -14,7 +14,24 @@
   "plugins": ["@typescript-eslint", "jest"],
   "rules": {
     "import/extensions": "off",
-    "@typescript-eslint/no-unused-vars": ["error"]
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["rollup.config.ts"]
+      }
+    ]
   },
   "settings": {
     "import/resolver": {
