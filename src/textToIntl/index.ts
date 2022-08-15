@@ -1,6 +1,10 @@
 import { ParseResult } from "@babel/parser";
-import traverse from "@babel/traverse";
+import fs from "fs";
+import * as parser from "@babel/parser";
+import generate from "@babel/generator";
 import * as t from "@babel/types";
+import dfsFile from "../dfsFile";
+import traverse from "../traverseWrapper";
 
 function isChinese(temp: string) {
   const re = /[\u4E00-\u9FA5]+/;
@@ -8,7 +12,7 @@ function isChinese(temp: string) {
   return false;
 }
 
-const textToIntl = (
+const textToIntlSimple = (
   ast: ParseResult<t.File>,
   intlFunName: string,
   intlFunPath: string
@@ -48,7 +52,6 @@ const textToIntl = (
           path.replaceWith(
             t.jsxExpressionContainer(
               t.callExpression(t.identifier(intlFunName), [
-                t.stringLiteral(""),
                 t.stringLiteral(path.node.value),
               ])
             )
@@ -59,7 +62,6 @@ const textToIntl = (
         // 其他字符串情况
         path.replaceWith(
           t.callExpression(t.identifier(intlFunName), [
-            t.stringLiteral(""),
             t.stringLiteral(path.node.value),
           ])
         );
@@ -76,7 +78,6 @@ const textToIntl = (
         path.replaceWith(
           t.jsxExpressionContainer(
             t.callExpression(t.identifier(intlFunName), [
-              t.stringLiteral(""),
               t.stringLiteral(path.node.value.trim()),
             ])
           )
@@ -105,6 +106,39 @@ const textToIntl = (
         }
       },
     },
+  });
+};
+
+const textToIntl = (
+  inputDir: string,
+  extname: string[],
+  intlFunName: string,
+  localFunDir: string
+) => {
+  dfsFile(inputDir, extname, (filePath) => {
+    const code = fs.readFileSync(filePath, { encoding: "utf-8" });
+
+    const ast = parser.parse(code, {
+      // parse in strict mode and allow module declarations
+      sourceType: "module",
+
+      plugins: [
+        // enable jsx and flow syntax
+        "jsx",
+        "typescript",
+      ],
+    });
+
+    textToIntlSimple(ast, intlFunName, localFunDir);
+
+    const output = generate(ast, {
+      jsescOption: {
+        // 处理字符串会被转成utf-8编码的表示的问题
+        minimal: true,
+      },
+    });
+
+    fs.writeFileSync(filePath, output.code, { encoding: "utf-8" });
   });
 };
 

@@ -2,6 +2,7 @@ import { defineConfig } from "rollup";
 import babel from "@rollup/plugin-babel";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import serve from 'rollup-plugin-serve'
 import json from "@rollup/plugin-json";
 // import { terser } from "rollup-plugin-terser";
 
@@ -12,7 +13,7 @@ export default defineConfig({
       name: "i18n_tool",
       file: "dist/index.js",
       format: "commonjs",
-      exports: "named",
+      exports: "auto",
       // plugins: [terser()],
     },
   ],
@@ -23,5 +24,6 @@ export default defineConfig({
     nodeResolve({
       extensions: [".ts", ".js", ".tsx", ".jsx"],
     }),
+    serve('dist')
   ],
 });

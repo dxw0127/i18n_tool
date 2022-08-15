@@ -6,22 +6,21 @@ const dfsFile = (
   extensions: string[],
   callback: (props: string) => any
 ) => {
-  fs.readdir(path, (_, data) => {
-    data.forEach((item) => {
-      const newPath = `${path}/${item}`;
-      fs.stat(newPath, (_err, ele) => {
-        if (ele.isFile()) {
-          const extname = nodePath.extname(item);
-          if (extensions.includes(extname)) {
-            callback(newPath);
-          }
-          return;
-        }
-        if (ele.isDirectory()) {
-          dfsFile(newPath, extensions, callback);
-        }
-      });
-    });
+  const data = fs.readdirSync(path);
+
+  data.forEach((item) => {
+    const newPath = `${path}/${item}`;
+    const stat = fs.statSync(newPath);
+    if (stat.isFile()) {
+      const extname = nodePath.extname(item);
+      if (extensions.includes(extname)) {
+        callback(newPath);
+      }
+      return;
+    }
+    if (stat.isDirectory()) {
+      dfsFile(newPath, extensions, callback);
+    }
   });
 };
 
