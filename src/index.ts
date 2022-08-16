@@ -1,4 +1,5 @@
 import fs from "fs";
+import nodePath from "path";
 import { program } from "commander";
 import textToIntl from "./textToIntl";
 import translateWords from "./translateWords";
@@ -24,7 +25,11 @@ const defaultConfig: IConfig = {
 program
   .name("i18n_tool")
   .description("transform language cli")
-  .version("0.0.1", "-v");
+  .version(
+    // eslint-disable-next-line import/no-dynamic-require
+    require(nodePath.resolve(__dirname, "../package.json")).version,
+    "-v"
+  );
 
 program.option("-c <string>", "set config file path").action((path: string) => {
   let userConfig: IConfig = defaultConfig;
