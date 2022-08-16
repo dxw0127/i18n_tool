@@ -1,15 +1,53 @@
+import fs from "fs";
+import { program } from "commander";
 import textToIntl from "./textToIntl";
 import translateWords from "./translateWords";
 
-const inputDir = "./test";
+export interface IConfig {
+  inputDir: string;
+  extname: `.${string}`[];
+  intlFunName: string;
+  localFunDir: string;
+  targetLanguage: string;
+  ignoreCache?: true;
+  replaceWord?: true;
+}
 
-const extname = [".ts", ".tsx"];
+const defaultConfig: IConfig = {
+  inputDir: "./src",
+  extname: [".ts", ".tsx"],
+  intlFunName: "i18n",
+  localFunDir: "./locals",
+  targetLanguage: "en-US",
+};
 
-const intlFunName = "i18n";
-const localFunDir = "./locals";
+program
+  .name("i18n_tool")
+  .description("transform language cli")
+  .version("0.0.1", "-v");
 
-const targetLanguage = "en-US";
+program.option("-c <string>", "set config file path").action((path: string) => {
+  let userConfig: IConfig = defaultConfig;
+  try {
+    userConfig = {
+      ...userConfig,
+      ...JSON.parse(fs.readFileSync(path, { encoding: "utf-8" })),
+    };
+  } catch (_) {
+    userConfig = defaultConfig;
+  }
 
-textToIntl(inputDir, extname, intlFunName, localFunDir);
+  const { replaceWord, ignoreCache, targetLanguage, ...restProps } = userConfig;
 
-translateWords(inputDir, extname, intlFunName, localFunDir, targetLanguage);
+  if (replaceWord) {
+    textToIntl(restProps);
+  }
+
+  translateWords({
+    ...restProps,
+    targetLanguage,
+    ignoreCache,
+  });
+});
+
+program.parse(process.argv);

@@ -3,14 +3,18 @@ import nodePath from "path";
 import * as parser from "@babel/parser";
 import traverse from "../traverseWrapper";
 import dfsFile from "../dfsFile";
+import { IConfig } from "../index";
 
-const translateWords = async (
-  inputDir: string,
-  extname: string[],
-  intlFunName: string,
-  localFunDir: string,
-  targetLanguage: string
-) => {
+type TranslateWordProps = Omit<IConfig, "replaceWord">;
+
+const translateWords = async ({
+  inputDir,
+  extname,
+  intlFunName,
+  localFunDir,
+  targetLanguage,
+  ignoreCache,
+}: TranslateWordProps) => {
   // eslint-disable-next-line
   const request = require(nodePath.resolve(localFunDir, `request`));
 
@@ -42,14 +46,21 @@ const translateWords = async (
   });
 
   let translatedMap: Record<string, string> = {};
-  try {
-    translatedMap = JSON.parse(
-      fs.readFileSync(nodePath.resolve(localFunDir, `${targetLanguage}.json`), {
-        encoding: "utf-8",
-      })
-    );
-  } catch (e) {
-    translatedMap = {};
+
+  // 不忽略缓存，就完全重新翻译
+  if (!ignoreCache) {
+    try {
+      translatedMap = JSON.parse(
+        fs.readFileSync(
+          nodePath.resolve(localFunDir, `${targetLanguage}.json`),
+          {
+            encoding: "utf-8",
+          }
+        )
+      );
+    } catch (e) {
+      translatedMap = {};
+    }
   }
 
   Object.keys(translatedMap).forEach((item) => {

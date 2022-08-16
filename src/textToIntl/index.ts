@@ -5,6 +5,12 @@ import generate from "@babel/generator";
 import * as t from "@babel/types";
 import dfsFile from "../dfsFile";
 import traverse from "../traverseWrapper";
+import { IConfig } from "../index";
+
+type TextToIntlProps = Pick<
+  IConfig,
+  "inputDir" | "extname" | "intlFunName" | "localFunDir"
+>;
 
 function isChinese(temp: string) {
   const re = /[\u4E00-\u9FA5]+/;
@@ -109,12 +115,12 @@ const textToIntlSimple = (
   });
 };
 
-const textToIntl = (
-  inputDir: string,
-  extname: string[],
-  intlFunName: string,
-  localFunDir: string
-) => {
+const textToIntl = ({
+  inputDir,
+  extname,
+  intlFunName,
+  localFunDir,
+}: TextToIntlProps) => {
   dfsFile(inputDir, extname, (filePath) => {
     const code = fs.readFileSync(filePath, { encoding: "utf-8" });
 

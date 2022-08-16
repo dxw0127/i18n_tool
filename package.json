@@ -2,12 +2,16 @@
   "name": "@fengluo/i18n_tool",
   "version": "1.0.0",
   "description": "i18n工具",
+  "bin": {
+    "i18n_tool": "./dist/index.js"
+  },
   "author": "",
   "files": [
     "dist"
   ],
   "scripts": {
-    "start": "rollup -w -c rollup.config.ts",
+    "start": "node dist/index.js help",
+    "watch": "rollup -w -c rollup.config.ts",
     "build": "rm -rf dist && rollup --config rollup.config.ts",
     "postbuild": "tsc  --emitDeclarationOnly --declaration --outDir dist/typings",
     "prepare": "husky install",
@@ -72,6 +76,7 @@
     "@babel/traverse": "^7.18.11",
     "@babel/types": "^7.18.10",
     "@types/node": "^18.7.2",
+    "commander": "^9.4.0",
     "uuid": "^8.3.2"
   }
 }
