@@ -334,4 +334,4 @@ Object.keys(translatedMap).forEach((item) => {
 
 # 最后
 
-这样，我们的一个多语言工具就基本写完了，当然这只是最初的版本，后续肯定还需要再优化<br />源代码地址：[https://github.com/fengluoX/i18n_tool/tree/docs_example](https://github.com/fengluoX/i18n_tool/tree/docs_example)
+这样，我们的一个多语言工具就基本写完了，当然这只是最初的版本，后续肯定还需要再优化<br />源代码地址：[https://github.com/fengluoX/i18n_tool/tree/v1.0](https://github.com/fengluoX/i18n_tool/tree/v1.0)
