@@ -12,8 +12,8 @@ type TextToIntlProps = Pick<
   "inputDir" | "extname" | "intlFunName" | "localFunDir"
 >;
 
-function isChinese(temp: string) {
-  const re = /[\u4E00-\u9FA5]+/;
+export function isChinese(temp: string) {
+  const re = /^[\u4E00-\u9FA5]+$/;
   if (re.test(temp)) return true;
   return false;
 }
