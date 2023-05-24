@@ -10,7 +10,7 @@
     "dist"
   ],
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node dist/index.js -c C:\\Users\\Duxw\\Documents\\Project\\i18n_tool\\i18n-config.json",
     "watch": "rollup -w -c rollup.config.ts",
     "build": "rm -rf dist && rollup --config rollup.config.ts",
     "postbuild": "tsc  --emitDeclarationOnly --declaration --outDir dist/typings",

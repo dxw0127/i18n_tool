@@ -1,0 +1,389 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .header {
+    height: 74px;
+    background: #ffffff;
+    box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.05);
+    padding-left: 96px;
+    display: flex;
+    align-items: center;
+
+    font-size: 18px;
+    line-height: 16px;
+
+    color: rgba(0, 0, 0, 0.45);
+    .title {
+      margin-left: 24px;
+    }
+  }
+
+  main {
+    margin-top: 74px;
+    background: #f4f8fc;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .contentBox {
+      width: 800px;
+      height: 500px;
+      background: #ffffff;
+      box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.03);
+      border-radius: 4px;
+      display: flex;
+
+      .asideImg {
+        width: 400px;
+        height: 500px;
+      }
+
+      .loginWrapper {
+        flex: 1;
+        .lang {
+          margin-top: 23px;
+          display: flex;
+          justify-content: flex-end;
+
+          .langSelect {
+            width: 84px;
+            margin-right: 21px;
+          }
+
+          :global(.ivu-select-selection) {
+            border-color: none;
+            box-shadow: none;
+            border: none;
+          }
+
+          :global(.ivu-select-single
+              .ivu-select-selection
+              .ivu-select-selected-value) {
+            padding-right: 0px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+
+            color: #666666;
+          }
+
+          :global(.ivu-icon-ios-arrow-down:before) {
+            content: "\f33d";
+          }
+
+          :global(.ivu-select-arrow) {
+            right: 0px;
+          }
+        }
+
+        .loginTitle {
+          font-style: normal;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 24px;
+          /* identical to box height */
+
+          text-align: center;
+
+          color: rgba(0, 0, 0, 0.85);
+          margin-top: 45px;
+        }
+
+        .form {
+          margin: 42px 40px 0px 40px;
+
+          .remember {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+          }
+
+          :global(.ivu-form-item-control) {
+            line-height: 1;
+          }
+        }
+
+        .register {
+          text-align: center;
+          margin-top: -8px;
+
+          .desc {
+            color: #999999;
+          }
+        }
+      }
+    }
+  }
+}
+
+.loginContainer.signInContainer {
+  main {
+    .contentBox {
+      height: 567px;
+      background: #fafbfc;
+      .asideImg {
+        margin-top: 33px;
+      }
+      .loginWrapper {
+        background: #fff;
+        .loginTitle {
+          margin-top: -26px;
+        }
+
+        .form {
+          margin: 42px 40px 0px 40px;
+
+          .captcha {
+            margin-top: -4px;
+            margin-bottom: 28px;
+            :global(.ivu-form-explain) {
+              position: absolute;
+              top: 44px;
+            }
+          }
+
+          .clause {
+            margin-bottom: 16px;
+          }
+
+          :global(.ivu-form-item-control) {
+            line-height: 1;
+          }
+
+          .disable {
+            :global(.ivu-input-group-append) {
+              background: rgba(0, 0, 0, 0.04);
+              border-radius: 0px 4px 4px 0px;
+              color: rgba(0, 0, 0, 0.25);
+              border-color: #d9d9d9;
+            }
+          }
+
+          :global(.ivu-input-group-append) {
+            width: 101px;
+            color: var(--ivu-btn-primary-color);
+            background-color: var(--ivu-btn-primary-bg);
+            border-color: var(--ivu-btn-primary-bg);
+            transition: none;
+
+            :global(.ivu-btn) {
+              transition: none;
+            }
+          }
+        }
+
+        .register {
+          text-align: center;
+          margin-top: -8px;
+
+          .desc {
+            color: #999999;
+          }
+        }
+      }
+    }
+  }
+}
+
+.loginContainer.inviteContainer {
+  main {
+    .inviteWrapper {
+      width: 450px;
+      height: 634px;
+
+      background: #ffffff;
+      box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.03);
+      border-radius: 4px;
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .inviteTitle {
+        width: 165px;
+        margin-top: 24px;
+      }
+
+      .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-top: 135px;
+      }
+
+      .inviterRow {
+        margin-top: 32px;
+
+        .inviter {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+          /* identical to box height, or 114% */
+
+          text-align: center;
+          letter-spacing: -0.01em;
+
+          color: rgba(0, 0, 0, 0.85);
+          opacity: 1;
+          margin-right: 4px;
+        }
+
+        .inviterContent {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+          /* identical to box height, or 114% */
+
+          text-align: center;
+          letter-spacing: -0.01em;
+
+          color: rgba(0, 0, 0, 0.85);
+
+          opacity: 0.45;
+        }
+      }
+
+      .inviteTame {
+        margin-top: 17px;
+        margin-bottom: 24px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        /* identical to box height */
+
+        text-align: center;
+
+        color: rgba(0, 0, 0, 0.85);
+      }
+
+      .inviteBtn {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 16px;
+        /* identical to box height, or 100% */
+
+        text-align: center;
+
+        color: #ffffff;
+
+        width: 370px;
+        height: 48px;
+
+        border-radius: 4px;
+      }
+    }
+
+    .noInviteWrapper {
+      width: 800px;
+      height: 404px;
+
+      background: #ffffff;
+      box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.03);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .invalidTitle {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 16px;
+      /* identical to box height, or 89% */
+
+      text-align: center;
+
+      color: rgba(0, 0, 0, 0.85);
+      margin-top: 32px;
+    }
+
+    .invalidDesc {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+      /* identical to box height, or 114% */
+
+      text-align: center;
+      letter-spacing: -0.01em;
+
+      color: rgba(0, 0, 0, 0.65);
+      margin-top: 24px;
+    }
+
+    .invalidImg {
+      width: 340px;
+      margin-top: 24px;
+    }
+  }
+}
+
+.loginContainer.intoTeamContainer {
+  main {
+    .intoTeamWrapper {
+      width: 800px;
+      height: 500px;
+
+      background: #ffffff;
+      box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.03);
+      border-radius: 4px;
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .intoTeamTitle {
+        margin-top: 32px;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 16px;
+        /* identical to box height, or 89% */
+
+        text-align: center;
+
+        color: rgba(0, 0, 0, 0.85);
+      }
+
+      .intoTeamDesc {
+        margin-top: 24px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        /* identical to box height, or 114% */
+
+        text-align: center;
+        letter-spacing: -0.01em;
+
+        color: rgba(0, 0, 0, 0.65);
+      }
+
+      .intoTeamImg {
+        margin-top: 24px;
+        width: 340px;
+      }
+
+      .intoTeamBtn {
+        width: 318px;
+        height: 40px;
+        border-radius: 4px;
+      }
+
+      .newTeam {
+        margin-top: 16px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        /* identical to box height, or 114% */
+
+        text-align: center;
+        letter-spacing: -0.01em;
+
+        color: #1890ff;
+      }
+    }
+  }
+}

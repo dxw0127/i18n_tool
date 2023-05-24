@@ -1,0 +1,206 @@
+.create-project-modal :global(.ivu-modal-body) {
+  display: flex;
+  padding: 16px 0 0;
+}
+
+.edit-project-modal :global(.ivu-modal-body) {
+  display: flex;
+  padding: 0;
+}
+
+.left-steps {
+  width: 192px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 48px;
+}
+
+.left-menu {
+  width: 192px;
+  background: #f2f8ff;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+
+  .team-inf {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+
+    div:first-child {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      text-align: center;
+      overflow: hidden;
+
+      span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #1890ff;
+        color: white;
+        font-size: 18px;
+        line-height: 44px;
+      }
+    }
+
+    div:last-child {
+      margin-left: 12px;
+      flex-grow: 1;
+      flex-shrink: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      h2 {
+        margin: 0;
+        line-height: 24px;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.85);
+      }
+
+      span {
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .team-menu {
+    width: 100%;
+    border-right: none;
+    background: transparent;
+
+    svg {
+      vertical-align: -0.14em;
+      margin-right: 12px;
+      color: rgba(0, 0, 0, 0.65);
+      fill: rgba(0, 0, 0, 0.65);
+      transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+        fill 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    :global(.ivu-menu-item):hover svg,
+    :global(.ivu-menu-item-active) svg,
+    :global(.ivu-menu-item-selected) svg {
+      color: #1890ff;
+      fill: #1890ff;
+    }
+  }
+}
+
+.right-form {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  height: 520px;
+
+  .form-scroll-container {
+    flex-grow: 1;
+    padding: 0 24px 0;
+    overflow-y: overlay;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  h3 {
+    margin: 0 0 4px 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  h4 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #333333;
+  }
+
+  .form-header {
+    margin-bottom: 32px;
+  }
+
+  .form-add-user {
+    margin: 12px 0 24px 0;
+    display: flex;
+    > div:nth-child(2) {
+      flex-shrink: 0;
+    }
+  }
+
+  .form-user-list {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.45);
+
+    h4 {
+      color: rgba(0, 0, 0, 0.85);
+      font-weight: 400;
+    }
+
+    :global(.ivu-list-item-meta) {
+      flex-basis: 180px;
+      flex-grow: 0;
+      align-items: center;
+    }
+
+    :global(.ivu-list-item-meta-avatar) {
+      margin-right: 12px;
+    }
+
+    :global(.ivu-list-item-content) {
+      justify-content: start;
+    }
+
+    :global(.ivu-list-item-action) {
+      margin: 0;
+      padding: 0;
+      height: 22px;
+      > li {
+        padding-right: 0;
+      }
+    }
+
+    :global(.ivu-dropdown) {
+      color: rgba(0, 0, 0, 0.65);
+      line-height: 21px;
+    }
+  }
+
+  .footer-actions {
+    padding: 24px;
+
+    .right-actions {
+      float: right;
+      button {
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+.edit-form {
+  height: 560px;
+
+  .form-header {
+    margin-bottom: 0;
+    padding: 12px 24px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .form-scroll-container {
+    padding: 24px;
+  }
+
+  .footer-actions {
+    padding: 10px 16px;
+    border-top: 1px solid #e8e8e8;
+  }
+}

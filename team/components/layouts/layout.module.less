@@ -1,0 +1,376 @@
+@header-height: 52px;
+@sider-width: 192px;
+
+.team-layout {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f5f5;
+
+  .team-content-layout {
+    padding-top: @header-height;
+    min-height: 100%;
+    background: #f5f5f5;
+  }
+
+  .team-sider {
+    position: fixed;
+    width: @sider-width;
+    height: calc(100% - @header-height);
+    left: 0;
+    top: @header-height;
+    background: #f2f8ff;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  .team-inf {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+
+    div:first-child {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      text-align: center;
+      overflow: hidden;
+
+      span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #1890ff;
+        color: white;
+        font-size: 18px;
+        line-height: 44px;
+      }
+    }
+
+    div:last-child {
+      margin-left: 12px;
+      flex-grow: 1;
+      flex-shrink: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      h2 {
+        margin: 0;
+        line-height: 24px;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.85);
+      }
+
+      span {
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .team-menu {
+    width: 100%;
+    border-right: none;
+    background: transparent;
+
+    svg {
+      vertical-align: -0.14em;
+      margin-right: 12px;
+      color: rgba(0, 0, 0, 0.65);
+      fill: rgba(0, 0, 0, 0.65);
+      transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+        fill 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    :global(.ivu-menu-item):hover svg,
+    :global(.ivu-menu-item-active) svg,
+    :global(.ivu-menu-item-selected) svg {
+      color: #1890ff;
+      fill: #1890ff;
+    }
+  }
+
+  .team-content {
+    margin-left: @sider-width;
+    min-height: 100%;
+  }
+}
+.team-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: @header-height;
+  line-height: 28px;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  background: #348eed;
+  z-index: 999;
+}
+
+.logo img {
+  display: block;
+  cursor: pointer;
+}
+
+.team-head-actions {
+  display: flex;
+  align-items: center;
+  margin: 0 -8px;
+  padding: 4px 0;
+  svg {
+    width: 20px;
+    height: 20px;
+    margin: 0 8px;
+    cursor: pointer;
+  }
+}
+.changeTeamContainer {
+  .changeTeamContent {
+    .desc {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      /* identical to box height, or 157% */
+      color: rgba(0, 0, 0, 0.85);
+      opacity: 0.65;
+    }
+
+    .radioGroup {
+      margin-top: 9px;
+      margin-left: 8px;
+    }
+
+    :global(.ivu-radio-group-vertical .ivu-radio-wrapper) {
+      margin-top: 9px;
+    }
+
+    .label {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      /* or 157% */
+      color: rgba(0, 0, 0, 0.85);
+    }
+
+    .curTeam {
+      display: inline-flex;
+      width: 64px;
+      height: 20px;
+      background: #e6f7ff;
+      border: 1px solid #91d5ff;
+      border-radius: 2px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      /* identical to box height, or 167% */
+
+      color: #1890ff;
+      justify-content: center;
+      align-items: center;
+      margin-left: 8px;
+    }
+
+    .createTeam {
+      display: inline-flex;
+      width: 62px;
+      height: 20px;
+
+      background: #fffbe6;
+      border: 1px solid #fbb938;
+      border-radius: 2px;
+
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      /* identical to box height, or 167% */
+
+      color: #faad14;
+      justify-content: center;
+      align-items: center;
+      margin-left: 8px;
+    }
+  }
+}
+
+.team-page-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  line-height: 22px;
+  background: #ffffff;
+
+  .header-title {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  .header-extra {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.header {
+  height: 74px;
+  background: #ffffff;
+  box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.05);
+  padding-left: 96px;
+  padding-right: 26px;
+  display: flex;
+  align-items: center;
+
+  font-size: 18px;
+  line-height: 16px;
+
+  color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  .header-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .logo {
+    cursor: pointer;
+    margin-right: 8px;
+  }
+  .title {
+    margin-left: 24px;
+  }
+  .mainTitle {
+    font-size: 24px;
+    font-weight: 700;
+    margin: auto;
+  }
+}
+
+.team-account-setting {
+  .avatar {
+    width: 36px;
+    height: 36px;
+    margin: 0 8px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  :global(.ivu-poptip-popper) {
+    min-width: 141px;
+  }
+
+  :global(.ivu-poptip-arrow) {
+    display: none;
+  }
+
+  :global(.ivu-poptip-body) {
+    padding: 0px;
+    // width: 141px;
+  }
+
+  .content {
+    width: 141px;
+    // height: 144px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    :global(.ivu-divider-horizontal) {
+      width: 117px;
+      min-width: 117px;
+      margin: 8px 12px 0px 12px;
+    }
+
+    .row {
+      padding: 0px 12px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .userName {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      /* identical to box height, or 157% */
+
+      color: #000000;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .userType {
+      width: 52px;
+      height: 20px;
+
+      background: #f5f5f5;
+      border: 1px solid #d9d9d9;
+      border-radius: 2px;
+      line-height: 20px;
+      text-align: center;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      /* identical to box height, or 167% */
+
+      color: rgba(0, 0, 0, 0.65);
+    }
+
+    .teamName {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 22px;
+      /* identical to box height, or 183% */
+
+      color: #000000;
+
+      opacity: 0.45;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .changeTeam {
+      cursor: pointer;
+    }
+
+    .userSetting,
+    .logout {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 32px;
+      /* identical to box height, or 229% */
+
+      color: rgba(0, 0, 0, 0.85);
+      padding: 0px 12px;
+      cursor: pointer;
+    }
+    .userSetting:hover,
+    .logout:hover {
+      background-color: #f5f5f5;
+    }
+  }
+}
+
+.or-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 24px;
+  line-height: 32px;
+  margin-top: 0px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}

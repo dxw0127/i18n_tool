@@ -1,0 +1,279 @@
+.settingContainer {
+  background: #f5f5f5;
+  .settingTab {
+    margin-top: 52px;
+    :global(.ivu-tabs-bar) {
+      background: #ffffff;
+    }
+    :global(.ivu-tabs-nav-wrap) {
+      margin-left: 9px;
+    }
+    :global(.ivu-tabs-nav) {
+      height: 64px;
+
+      :global(.ivu-tabs-tab) {
+        line-height: 42px;
+      }
+
+      :global(.ivu-tabs-ink-bar) {
+        width: 66px !important;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.userInfoContainer {
+  margin: 24px;
+  margin-top: 8px;
+  padding: 24px;
+  background: #ffffff;
+
+  .form {
+    display: flex;
+
+    :global(.ivu-form-item) {
+      padding-bottom: 0px;
+    }
+
+    :global(.ivu-form-item-required::before) {
+      margin-left: 0px;
+      content: "";
+    }
+
+    .formLeft {
+      width: 310px;
+      margin-right: 107px;
+    }
+    .uploadWrapper {
+      cursor: pointer;
+      width: 107px;
+      height: 32px;
+
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        margin-right: 4px;
+      }
+    }
+
+    .formItemAvatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .uploadTip {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      /* or 157% */
+
+      text-align: center;
+
+      color: #000000;
+
+      opacity: 0.45;
+      width: 190px;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .avatar {
+      width: 144px;
+      height: 144px;
+      border-radius: 50%;
+      margin-bottom: 16px;
+    }
+  }
+
+  .editBtn {
+    height: 32px;
+    background: #1890ff;
+    border-radius: 4px;
+  }
+
+  .cancelBtn {
+    width: 68px;
+    height: 32px;
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    margin-left: 8px;
+  }
+}
+
+.userAccountContainer {
+  margin: 24px;
+  margin-top: 8px;
+  padding: 24px;
+  background: #ffffff;
+
+  .title {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    /* identical to box height, or 157% */
+
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  .desc {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    /* or 157% */
+
+    color: #000000;
+
+    opacity: 0.65;
+    margin-top: 13px;
+    width: 672px;
+    margin-bottom: 18px;
+  }
+
+  .modifyBtn {
+  }
+
+  .formArea {
+    margin-top: 37px;
+
+    width: 330px;
+
+    :global(.ivu-form-item) {
+      padding-bottom: 0px;
+    }
+
+    :global(.ivu-form-item-required::before) {
+      margin-left: 0px;
+      content: "";
+    }
+
+    .editBtn {
+      margin-right: 16px;
+    }
+  }
+}
+
+.teamSettingContainer {
+  margin: 24px;
+  margin-top: 8px;
+  padding: 24px;
+  background: #ffffff;
+  .newTeam {
+    width: 101px;
+    height: 32px;
+    background: #1890ff;
+    border-radius: 4px;
+  }
+
+  .intoTeam {
+    width: 88px;
+    height: 32px;
+    margin-left: 8px;
+
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+  }
+
+  .teamList {
+    margin-top: 16px;
+    .teamListItem {
+      padding: 0px 16px;
+      height: 64px;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .teamInfo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .firstName {
+          width: 32px;
+          height: 32px;
+          background: #00a2ae;
+          border-radius: 4px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 22px;
+          /* identical to box height, or 157% */
+          color: #ffffff;
+        }
+
+        .name {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 22px;
+          /* identical to box height, or 157% */
+
+          color: rgba(0, 0, 0, 0.85);
+          margin-left: 12px;
+        }
+
+        .tag {
+          width: 35px;
+          height: 22px;
+          background: #e6f7ff;
+          border: 1px solid #18acff;
+          border-radius: 3px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 16px;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 22px;
+          /* identical to box height, or 183% */
+
+          color: #18acff;
+        }
+      }
+
+      .operation {
+        .curTeam {
+          width: 88px;
+          height: 32px;
+
+          background: #f5f5f5;
+          border: 1px solid rgba(0, 0, 0, 0.15);
+          border-radius: 4px;
+        }
+
+        .editTeam {
+          display: none;
+
+          .editBtn {
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+
+    .teamListItem:hover {
+      background: #f7f7f7;
+      .curTeam {
+        display: none;
+      }
+
+      .editTeam {
+        display: block;
+      }
+    }
+  }
+}

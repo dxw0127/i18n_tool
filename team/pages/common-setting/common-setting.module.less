@@ -1,0 +1,61 @@
+.card {
+  margin: 24px;
+  padding: 24px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.team-header {
+  display: flex;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+  line-height: 22px;
+
+  .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 16px;
+
+    div {
+      text-align: center;
+      line-height: 60px;
+      background: #1890ff;
+      font-size: 30px;
+      color: white;
+    }
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 12px;
+
+    img {
+      margin-left: 12px;
+      cursor: pointer;
+    }
+  }
+}
+
+.team-content {
+  h3 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+
+  button {
+    float: right;
+  }
+
+  :not(.form-editable) :global(.ivu-form-item) {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "to_info",
+  "sub_org_key": "",
+  "org_name": "测试机构名称",
+  "appkey": "",
+  "channel": "",
+  "site_info": {
+    "kong_proxy": "",
+    "site_id": "",
+    "site_host": ""
+  },
+  "properties": {
+    "user_info_arr": [
+      {
+        "account_id": "ddddddsfdwfwefew",
+        "name": "用户1",
+        "avatar_url": "",
+        "email": ""
+      }
+    ]
+  }
+}

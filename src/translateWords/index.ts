@@ -7,6 +7,14 @@ import { IConfig } from "../index";
 
 type TranslateWordProps = Omit<IConfig, "replaceWord">;
 
+function formatNameToCamelCase(name: string) {
+  const camelCaseName = name.replaceAll(/(_\w)/g, (match) =>
+    match[1].toUpperCase()
+  );
+
+  return camelCaseName;
+}
+
 const translateWords = async ({
   inputDir,
   extname,
@@ -21,11 +29,12 @@ const translateWords = async ({
   const pendI18nWords = new Set<string>();
 
   dfsFile(inputDir, extname, (filePath) => {
+    console.log("dfsFile ---> filePath:", filePath);
     const code = fs.readFileSync(filePath, { encoding: "utf-8" });
 
     const ast = parser.parse(code, {
       sourceType: "module",
-      plugins: ["jsx", "typescript"],
+      plugins: ["jsx", "typescript", "decorators"],
     });
 
     traverse(ast, {
@@ -46,6 +55,7 @@ const translateWords = async ({
   });
 
   let translatedMap: Record<string, string> = {};
+  const originMap: Record<string, string> = {};
 
   // 不忽略缓存，就完全重新翻译
   if (!ignoreCache) {
@@ -71,14 +81,26 @@ const translateWords = async ({
   });
 
   const translatedWords = await request([...pendI18nWords], targetLanguage);
+  console.log("translatedWords22222222222222:", translatedWords);
 
   [...pendI18nWords].forEach((item, index) => {
-    translatedMap[item] = translatedWords[index];
+    const capitalized =
+      translatedWords[index].charAt(0).toUpperCase() +
+      translatedWords[index].slice(1);
+
+    // const camelName = formatNameToCamelCase(translatedWords[index]);
+    translatedMap[item] = capitalized.split("_").join(" ");
+    originMap[item] = item;
   });
 
   fs.writeFileSync(
     nodePath.resolve(localFunDir, `${targetLanguage}.json`),
     JSON.stringify(translatedMap)
+  );
+
+  fs.writeFileSync(
+    nodePath.resolve(localFunDir, `zh-CN.json`),
+    JSON.stringify(originMap)
   );
 };
 

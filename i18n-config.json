@@ -1,0 +1,8 @@
+{
+  "inputDir": "C:\\Users\\Duxw\\Documents\\Project\\i18n_tool\\team",
+  "extname": [".tsx"],
+  "intlFunName": "$l",
+  "localFunDir": "C:\\Users\\Duxw\\Documents\\Project\\i18n_tool\\locales",
+  "targetLanguage": "en-US",
+  "ignoreCache": true
+}

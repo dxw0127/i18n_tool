@@ -13,8 +13,8 @@ type TextToIntlProps = Pick<
 >;
 
 export function isChinese(temp: string) {
-  const re = /^[\u4E00-\u9FA5]+$/;
-  if (re.test(temp)) return true;
+  const re = /[\u4E00-\u9FA5]+/;
+  if (re.test(temp.trim())) return true;
   return false;
 }
 
@@ -100,16 +100,16 @@ const textToIntlSimple = (
     },
     Program: {
       exit(path) {
-        if (isAddImport.needImport && isAddImport.notImported) {
-          path
-            .get("body")[0]
-            ?.insertBefore(
-              t.importDeclaration(
-                [t.importDefaultSpecifier(t.identifier(intlFunName))],
-                t.stringLiteral(intlFunPath)
-              )
-            );
-        }
+        // if (isAddImport.needImport && isAddImport.notImported) {
+        //   path
+        //     .get("body")[0]
+        //     ?.insertBefore(
+        //       t.importDeclaration(
+        //         [t.importDefaultSpecifier(t.identifier(intlFunName))],
+        //         t.stringLiteral(intlFunPath)
+        //       )
+        //     );
+        // }
       },
     },
   });
@@ -132,10 +132,11 @@ const textToIntl = ({
         // enable jsx and flow syntax
         "jsx",
         "typescript",
+        "decorators",
       ],
     });
 
-    textToIntlSimple(ast, intlFunName, localFunDir);
+    textToIntlSimple(ast, `${intlFunName}`, localFunDir);
 
     const output = generate(ast, {
       jsescOption: {

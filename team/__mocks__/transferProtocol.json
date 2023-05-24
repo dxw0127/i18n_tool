@@ -1,0 +1,73 @@
+{
+  "data": [
+    {
+      "after_behaviors": [],
+      "before_behaviors": [],
+      "from_info": {
+        "appkey": "topofqufhnawnitsxxofqrdb8tzjzi8l",
+        "channel": 2,
+        "org_name": "速创秀普",
+        "properties": [],
+        "site_info": {
+          "site_id": "sal2"
+        },
+        "sub_org_key": "cd92f840eb1849c799bd686c89a2f457",
+        "type": ""
+      },
+      "privilege": {
+        "privilege_own": {
+          "can_transfer": 1,
+          "has_privilege": 1
+        },
+        "privilege_transfer_own": {
+          "can_transfer": 1,
+          "has_privilege": 1
+        },
+        "privilege_transfer_use": {
+          "can_transfer": 1,
+          "has_privilege": 1
+        },
+        "privilege_transfer_watch": {
+          "can_transfer": 1,
+          "has_privilege": 1
+        },
+        "privilege_use": {
+          "can_transfer": 1,
+          "has_privilege": 1
+        }
+      },
+      "target_info": {
+        "app_id": "uh49y8vwmxp5rsiqthfjm62ynxbajofc",
+        "appkey": "topo7s8ytzkryswhlodpfcphwzjjxelk",
+        "channel": "75",
+        "name": "测试开空仓",
+        "site_info": {
+          "site_id": "sal2"
+        }
+      },
+      "to_info": {
+        "appkey": "topofqufhnawnitsxxofqrdb8tzjzi8l",
+        "channel": "2",
+        "org_name": "速创秀普",
+        "properties": {
+          "user_info_arr": [
+            {
+              "account_id": "sal27i4489a2f457210422eaenam003f",
+              "name": "king",
+              "email": "",
+              "avatar_url": "",
+              "role_name": "撒旦法",
+              "role_id": "sadfsaf"
+            }
+          ]
+        },
+        "site_info": { "site_id": "sal2" },
+        "sub_org_key": "cd92f840eb1849c799bd686c89a2f457",
+        "type": ""
+      }
+    }
+  ],
+  "id": "did:wlk:ch8LeXsjGxGyn2k8X96EFXi4Sdatf2KEp41NN#transfer_target",
+  "serviceEndpoint": "",
+  "type": "transfer_target"
+}
